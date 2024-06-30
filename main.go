@@ -28,6 +28,7 @@ func main() {
 	subRouter.HandleFunc("/ride/complete/{id}", ctr.CompleteRide).Methods(http.MethodPost)
 	subRouter.HandleFunc("/ride/cancel/{id}", ctr.CancelRide).Methods(http.MethodPost)
 	subRouter.HandleFunc("driver/earnings/{id}", ctr.DriverEarnings).Methods(http.MethodGet)
+	subRouter.HandleFunc("ride/invoice/{id}", ctr.GetRideInvoice).Methods(http.MethodGet)
 
 	log.Println("Server starting at port 9000")
 	if err := http.ListenAndServe(":9000", router); err != nil {

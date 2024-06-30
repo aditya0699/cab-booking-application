@@ -57,3 +57,7 @@ func (srv *BookingService) CancelRide(rideID string) *models.Ride {
 func (srv *BookingService) GetDriverEarnings(driverId string) int64 {
 	return srv.repo.GetDriverEarnings(driverId)
 }
+
+func (srv *BookingService) GetRideInvoice(rideId string) *models.PricingTier {
+	return srv.repo.GetRideInvoice(rideId)
+}

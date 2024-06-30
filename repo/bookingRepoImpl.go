@@ -120,3 +120,12 @@ func (repo *BookingRepo) UpdateRideStatus(rideId string, status string) *models.
 func (repo *BookingRepo) GetDriverEarnings(driverId string) int64 {
 	return int64(repo.Drivers[driverId].TotalEarnings)
 }
+
+func (repo *BookingRepo) GetRideInvoice(rideId string) *models.PricingTier {
+	ride := repo.Rides[rideId]
+	return &models.PricingTier{
+		PerKM:    10,
+		BaseFare: 50,
+		Tier:     ride.CabType,
+	}
+}

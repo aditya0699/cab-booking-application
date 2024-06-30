@@ -105,3 +105,17 @@ func (mr *MockIBookingServiceMockRecorder) GetDriverEarnings(driverId interface{
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetDriverEarnings", reflect.TypeOf((*MockIBookingService)(nil).GetDriverEarnings), driverId)
 }
+
+// GetRideInvoice mocks base method.
+func (m *MockIBookingService) GetRideInvoice(rideID string) *models.PricingTier {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetRideInvoice", rideID)
+	ret0, _ := ret[0].(*models.PricingTier)
+	return ret0
+}
+
+// GetRideInvoice indicates an expected call of GetRideInvoice.
+func (mr *MockIBookingServiceMockRecorder) GetRideInvoice(rideID interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRideInvoice", reflect.TypeOf((*MockIBookingService)(nil).GetRideInvoice), rideID)
+}

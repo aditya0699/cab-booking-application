@@ -13,4 +13,6 @@ type IBookingService interface {
 	CancelRide(rideID string) *models.Ride
 
 	GetDriverEarnings(driverId string) int64
+
+	GetRideInvoice(rideID string) *models.PricingTier
 }

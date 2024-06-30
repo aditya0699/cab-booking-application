@@ -126,3 +126,15 @@ func (ctr *BookingController) DriverEarnings(w http.ResponseWriter, r *http.Requ
 	earnings := ctr.bookingService.GetDriverEarnings(driverId)
 	json.NewEncoder(w).Encode(earnings)
 }
+
+func (ctr *BookingController) GetRideInvoice(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	rideId, ok := params["id"]
+	if !ok {
+		log.Println("Error in parsing driverId")
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	rideFare := ctr.bookingService.GetRideInvoice(rideId)
+	json.NewEncoder(w).Encode(rideFare)
+}

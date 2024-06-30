@@ -19,4 +19,6 @@ type IBookingRepo interface {
 	UpdateRideStatus(rideId string, status string) *models.Ride
 
 	GetDriverEarnings(driverId string) int64
+
+	GetRideInvoice(rideId string) *models.PricingTier
 }
